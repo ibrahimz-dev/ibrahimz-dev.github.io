@@ -101,6 +101,53 @@
         .theme-surface { background-color: var(--surface); border-color: var(--line); }
         .badge-mono { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
         .stack-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.22rem 0.65rem; color: var(--ink); background: var(--pill-bg); }
+        /* ---------- Carousel ---------- */
+        .carousel { position: relative; }
+        .car-viewport { overflow: hidden; border-radius: 1rem; border: 1px solid var(--line-soft); background: #0a0d12; touch-action: pan-y; }
+        html:not(.dark) .car-viewport { background: #e9edf3; }
+        .car-track { display: flex; transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
+        .car-slide { flex: 0 0 100%; min-width: 0; margin: 0; }
+        .car-zoom { position: relative; display: block; width: 100%; padding: 0; background: none; border: 0; cursor: zoom-in; }
+        .car-slide img.car-img { display: block; width: 100%; height: clamp(230px, 36vw, 400px); object-fit: contain; }
+        .car-portrait img.car-img { height: clamp(300px, 62vw, 460px); }
+        .car-slide figcaption { padding: 0.65rem 1rem 0.95rem; }
+        .car-hint {
+            position: absolute; right: 0.8rem; top: 0.8rem; display: inline-flex; align-items: center; gap: 0.4rem;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em;
+            color: #f3f4f6; background: rgba(10, 13, 18, 0.72); border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 999px; padding: 0.3rem 0.7rem; opacity: 0; transition: opacity 0.2s ease;
+        }
+        .car-zoom:hover .car-hint, .car-zoom:focus-visible .car-hint { opacity: 1; }
+        .car-btn {
+            position: absolute; top: 36%; width: 2.6rem; height: 2.6rem; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+            color: #f3f4f6; background: rgba(10, 13, 18, 0.72); border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(6px); transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .car-btn:hover { transform: scale(1.07); background: rgba(10, 13, 18, 0.9); }
+        .car-prev { left: 0.7rem; } .car-next { right: 0.7rem; }
+        .car-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.75rem; }
+        .car-dots button { width: 8px; height: 8px; border-radius: 999px; border: 0; padding: 0; cursor: pointer; background: var(--faint); opacity: 0.45; transition: all 0.25s ease; }
+        .car-dots button.active { width: 26px; opacity: 1; background: #287BFF; }
+        /* ---------- Lightbox ---------- */
+        .lb.hidden { display: none; }
+        .lb { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; }
+        .lb-backdrop { position: absolute; inset: 0; background: rgba(3, 5, 9, 0.92); }
+        .lb-figure { position: relative; margin: 0; max-width: 93vw; text-align: center; }
+        .lb-img { display: block; max-width: 93vw; max-height: 80vh; width: auto; height: auto; margin: 0 auto; border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.2); background: #0a0d12; object-fit: contain; }
+        .lb-cap { margin-top: 0.7rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; color: #c6cdd8; }
+        .lb-count { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); margin: 0; color: #8a8f98; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.14em; }
+        .lb-btn {
+            position: absolute; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
+            color: #f3f4f6; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 50%; backdrop-filter: blur(6px); transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .lb-btn:hover { background: rgba(255,255,255,0.16); transform: scale(1.06); }
+        .lb-close { top: 1.1rem; right: 1.1rem; width: 2.8rem; height: 2.8rem; font-size: 1rem; }
+        .lb-prev { left: 1rem; top: 50%; transform: translateY(-50%); width: 2.8rem; height: 2.8rem; }
+        .lb-next { right: 1rem; top: 50%; transform: translateY(-50%); width: 2.8rem; height: 2.8rem; }
+        .lb-prev:hover { transform: translateY(-50%) scale(1.06); }
+        .lb-next:hover { transform: translateY(-50%) scale(1.06); }
         .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
         .reveal.visible { opacity: 1; transform: none; }
         a:focus-visible, button:focus-visible { outline: 2px solid #287BFF; outline-offset: 3px; border-radius: 6px; }
@@ -112,6 +159,7 @@
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .car-track { transition: none !important; }
         }
     </style>
 </head>
@@ -249,16 +297,11 @@
                 </div>
             </div>
 
-            <!-- Right Card: Featured Argus CTI with IZ visual -->
+            <!-- Right Card: Featured Argus CTI with screenshot carousel -->
             <div class="lg:col-span-8 card-dark rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-12 shadow-2xl reveal" style="border: 1px solid var(--line-soft)">
 
-                <!-- Left Visual Graphic Section: live dashboard screenshot -->
-                <div class="md:col-span-5 relative min-h-[220px] md:min-h-full overflow-hidden" style="background:#0a0d12">
-                    <img src="assets/preview-cti-overview.png" alt="Argus CTI Executive Overview dashboard — live KPIs, alert pipeline and indicator breakdown" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
-                </div>
-
-                <!-- Right Description & Action Content -->
-                <div class="md:col-span-7 p-7 sm:p-9 flex flex-col justify-between space-y-6">
+                <!-- Description & Action Content -->
+                <div class="md:col-span-12 p-7 sm:p-9 pb-5 flex flex-col justify-between space-y-6">
                     <div class="space-y-3">
                         <p class="badge-mono">01 — FEATURED · PYTHON + REACT</p>
                         <h3 class="text-xl sm:text-2xl font-bold theme-ink font-mono leading-tight">
@@ -283,12 +326,31 @@
                     </div>
                 </div>
 
-                <!-- Second live screenshot: threat origin map -->
+                <!-- Screenshot carousel: live dashboard captures -->
                 <div class="md:col-span-12 px-7 sm:px-9 pb-7 sm:pb-9">
-                    <figure class="m-0">
-                        <img src="assets/preview-cti-landscape.png" alt="Argus CTI Threat Landscape — geolocated world origin map with top countries panel" class="w-full rounded-2xl" style="border: 1px solid var(--line-soft)" loading="lazy" />
-                        <figcaption class="badge-mono mt-2">THREAT LANDSCAPE — LIVE DASHBOARD SCREENSHOT</figcaption>
-                    </figure>
+                    <div class="carousel" data-carousel data-carousel-name="Argus CTI screenshots" aria-roledescription="carousel" aria-label="Argus CTI live screenshots">
+                        <div class="car-viewport">
+                            <div class="car-track">
+                                <figure class="car-slide m-0">
+                                    <button type="button" class="car-zoom" data-caption="EXECUTIVE OVERVIEW — LIVE DASHBOARD" aria-label="Enlarge screenshot: Executive Overview">
+                                        <img src="assets/preview-cti-overview.png" alt="Argus CTI Executive Overview dashboard — live KPIs, alert pipeline and indicator breakdown" class="car-img" loading="lazy" />
+                                        <span class="car-hint"><i class="fa-solid fa-expand" aria-hidden="true"></i> TAP TO ENLARGE</span>
+                                    </button>
+                                    <figcaption class="badge-mono">EXECUTIVE OVERVIEW — LIVE DASHBOARD</figcaption>
+                                </figure>
+                                <figure class="car-slide m-0">
+                                    <button type="button" class="car-zoom" data-caption="THREAT LANDSCAPE — LIVE DASHBOARD" aria-label="Enlarge screenshot: Threat Landscape">
+                                        <img src="assets/preview-cti-landscape.png" alt="Argus CTI Threat Landscape — geolocated world origin map with top countries panel" class="car-img" loading="lazy" />
+                                        <span class="car-hint"><i class="fa-solid fa-expand" aria-hidden="true"></i> TAP TO ENLARGE</span>
+                                    </button>
+                                    <figcaption class="badge-mono">THREAT LANDSCAPE — LIVE DASHBOARD</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                        <button type="button" class="car-btn car-prev" aria-label="Previous screenshot"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <button type="button" class="car-btn car-next" aria-label="Next screenshot"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                        <div class="car-dots" role="tablist" aria-label="Choose screenshot"></div>
+                    </div>
                 </div>
 
             </div>
@@ -300,10 +362,35 @@
                 <p class="badge-mono mb-3">03 — TYPESCRIPT · EXPO</p>
                 <h3 class="text-base font-bold theme-ink font-mono mb-2">CampusEvents-AI</h3>
                 <p class="text-xs theme-muted leading-relaxed mb-4">Expo campus-events app: student catalog, search, favorites, registrations; admin CRUD; LLM assistant; offline-first SQLite.</p>
-                <div class="grid grid-cols-3 gap-3 mb-2" role="group" aria-label="Live app screenshots">
-                    <img src="assets/preview-campus-catalog.png" alt="CampusEvents catalog screen — event discovery in French" class="w-full rounded-xl" style="border: 1px solid var(--line-soft)" loading="lazy" />
-                    <img src="assets/preview-campus-favorites.png" alt="CampusEvents favorites screen — saved events list" class="w-full rounded-xl" style="border: 1px solid var(--line-soft)" loading="lazy" />
-                    <img src="assets/preview-campus-ai.png" alt="Campus AI assistant chat — natural-language event search" class="w-full rounded-xl" style="border: 1px solid var(--line-soft)" loading="lazy" />
+                <div class="carousel mb-2" data-carousel data-carousel-name="CampusEvents screenshots" aria-roledescription="carousel" aria-label="CampusEvents live app screenshots">
+                    <div class="car-viewport">
+                        <div class="car-track">
+                            <figure class="car-slide car-portrait m-0">
+                                <button type="button" class="car-zoom" data-caption="CATALOG — EVENT DISCOVERY" aria-label="Enlarge screenshot: event catalog">
+                                    <img src="assets/preview-campus-catalog.png" alt="CampusEvents catalog screen — event discovery in French" class="car-img" loading="lazy" />
+                                    <span class="car-hint"><i class="fa-solid fa-expand" aria-hidden="true"></i> TAP TO ENLARGE</span>
+                                </button>
+                                <figcaption class="badge-mono">CATALOG — EVENT DISCOVERY</figcaption>
+                            </figure>
+                            <figure class="car-slide car-portrait m-0">
+                                <button type="button" class="car-zoom" data-caption="FAVORITES — SAVED EVENTS" aria-label="Enlarge screenshot: favorites">
+                                    <img src="assets/preview-campus-favorites.png" alt="CampusEvents favorites screen — saved events list" class="car-img" loading="lazy" />
+                                    <span class="car-hint"><i class="fa-solid fa-expand" aria-hidden="true"></i> TAP TO ENLARGE</span>
+                                </button>
+                                <figcaption class="badge-mono">FAVORITES — SAVED EVENTS</figcaption>
+                            </figure>
+                            <figure class="car-slide car-portrait m-0">
+                                <button type="button" class="car-zoom" data-caption="CAMPUS AI — ASSISTANT CHAT" aria-label="Enlarge screenshot: AI assistant">
+                                    <img src="assets/preview-campus-ai.png" alt="Campus AI assistant chat — natural-language event search" class="car-img" loading="lazy" />
+                                    <span class="car-hint"><i class="fa-solid fa-expand" aria-hidden="true"></i> TAP TO ENLARGE</span>
+                                </button>
+                                <figcaption class="badge-mono">CAMPUS AI — ASSISTANT CHAT</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <button type="button" class="car-btn car-prev" aria-label="Previous screenshot"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                    <button type="button" class="car-btn car-next" aria-label="Next screenshot"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                    <div class="car-dots" role="tablist" aria-label="Choose screenshot"></div>
                 </div>
                 <p class="badge-mono mb-4">LIVE APP SCREENSHOTS — FROM PROJECT PDF</p>
                 <div class="flex flex-wrap gap-2 mb-4" aria-label="Stack"><span class="stack-badge">TypeScript</span><span class="stack-badge">Expo</span><span class="stack-badge">SQLite</span></div>
@@ -366,6 +453,19 @@
         </div>
     </footer>
 
+    <!-- Screenshot lightbox -->
+    <div id="lightbox" class="lb hidden" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+        <div class="lb-backdrop" data-lb-close></div>
+        <figure class="lb-figure">
+            <img id="lbImg" class="lb-img" src="assets/logo.png" alt="" />
+            <figcaption id="lbCap" class="lb-cap"></figcaption>
+        </figure>
+        <button type="button" class="lb-btn lb-close" aria-label="Close preview"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <button type="button" class="lb-btn lb-prev" aria-label="Previous screenshot"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" class="lb-btn lb-next" aria-label="Next screenshot"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <p class="lb-count" id="lbCount"></p>
+    </div>
+
     <script>
       (function () {
         // Theme toggle (dark default, persisted, OS-aware)
@@ -407,6 +507,97 @@
 
         // Footer year + scroll reveals
         document.getElementById('year').textContent = String(new Date().getFullYear());
+
+        // Screenshot lightbox (shared by all carousels)
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lbImg');
+        var lbCap = document.getElementById('lbCap');
+        var lbCount = document.getElementById('lbCount');
+        var lbItems = [], lbIndex = 0, lbOpener = null;
+        function lbRender() {
+          var item = lbItems[lbIndex];
+          lbImg.src = item.src;
+          lbImg.alt = item.alt;
+          lbCap.textContent = item.cap;
+          lbCount.textContent = (lbIndex + 1) + ' / ' + lbItems.length;
+        }
+        function lbOpen(items, idx, opener) {
+          lbItems = items; lbIndex = idx; lbOpener = opener || null;
+          lb.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          lbRender();
+          lb.querySelector('.lb-close').focus();
+        }
+        function lbClose() {
+          lb.classList.add('hidden');
+          document.body.style.overflow = '';
+          if (lbOpener && lbOpener.focus) lbOpener.focus();
+        }
+        function lbGo(d) {
+          if (!lbItems.length) return;
+          lbIndex = (lbIndex + d + lbItems.length) % lbItems.length;
+          lbRender();
+        }
+        lb.querySelector('.lb-close').addEventListener('click', lbClose);
+        lb.querySelector('.lb-prev').addEventListener('click', function () { lbGo(-1); });
+        lb.querySelector('.lb-next').addEventListener('click', function () { lbGo(1); });
+        lb.querySelector('[data-lb-close]').addEventListener('click', lbClose);
+
+        // Carousels (identical behavior everywhere)
+        document.querySelectorAll('[data-carousel]').forEach(function (root) {
+          var track = root.querySelector('.car-track');
+          var slides = Array.prototype.slice.call(root.querySelectorAll('.car-slide'));
+          var dotsWrap = root.querySelector('.car-dots');
+          var i = 0;
+          slides.forEach(function (_, k) {
+            var d = document.createElement('button');
+            d.type = 'button';
+            d.setAttribute('role', 'tab');
+            d.setAttribute('aria-label', 'Show screenshot ' + (k + 1) + ' of ' + slides.length);
+            d.addEventListener('click', function () { go(k); });
+            dotsWrap.appendChild(d);
+          });
+          var dots = Array.prototype.slice.call(dotsWrap.children);
+          function go(k) {
+            i = ((k % slides.length) + slides.length) % slides.length;
+            track.style.transform = 'translateX(-' + (i * 100) + '%)';
+            dots.forEach(function (d, j) {
+              d.classList.toggle('active', j === i);
+              d.setAttribute('aria-selected', String(j === i));
+            });
+            root.setAttribute('aria-label', (root.getAttribute('data-carousel-name') || 'Screenshots') + ' — slide ' + (i + 1) + ' of ' + slides.length);
+          }
+          root.querySelector('.car-prev').addEventListener('click', function () { go(i - 1); });
+          root.querySelector('.car-next').addEventListener('click', function () { go(i + 1); });
+          // touch / drag swipe
+          var x0 = null;
+          var vp = root.querySelector('.car-viewport');
+          vp.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+          vp.addEventListener('pointerup', function (e) {
+            if (x0 === null) return;
+            var dx = e.clientX - x0; x0 = null;
+            if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+          });
+          // tap-to-enlarge feeds the lightbox with this carousel's slides
+          var zoomBtns = Array.prototype.slice.call(root.querySelectorAll('.car-zoom'));
+          zoomBtns.forEach(function (b, k) {
+            b.addEventListener('click', function () {
+              var items = zoomBtns.map(function (z) {
+                var img = z.querySelector('img');
+                return { src: img.getAttribute('src'), alt: img.getAttribute('alt') || '', cap: z.getAttribute('data-caption') || '' };
+              });
+              lbOpen(items, k, b);
+            });
+          });
+          go(0);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (lb.classList.contains('hidden')) return;
+          if (e.key === 'Escape') lbClose();
+          else if (e.key === 'ArrowLeft') lbGo(-1);
+          else if (e.key === 'ArrowRight') lbGo(1);
+        });
+
         var items = document.querySelectorAll('.reveal');
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
           items.forEach(function (el) { el.classList.add('visible'); });
