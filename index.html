@@ -102,6 +102,18 @@
         .badge-mono { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
         .skill-icons { height: 40px; width: auto; max-width: 100%; }
         .stack-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.22rem 0.65rem; color: var(--ink); background: var(--pill-bg); }
+        /* ---------- Feature rows ---------- */
+        .work-num {
+            font-family: 'JetBrains Mono', monospace; font-weight: 500;
+            font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1;
+            color: var(--faint); opacity: 0.55; user-select: none;
+        }
+        @supports (-webkit-text-stroke: 1px black) {
+            .work-num { color: transparent; -webkit-text-stroke: 1px var(--faint); opacity: 0.9; }
+        }
+        .work-points { margin: 0; padding-left: 1.15rem; color: var(--muted); font-size: 0.9rem; display: grid; gap: 0.32rem; }
+        @media (min-width: 768px) { .work-points.cols-2 { grid-template-columns: 1fr 1fr; column-gap: 1.5rem; } }
+        .work-points li::marker { color: #287BFF; }
         /* ---------- Carousel ---------- */
         .carousel { position: relative; }
         .car-viewport { overflow: hidden; border-radius: 1rem; border: 1px solid var(--line-soft); background: #0a0d12; touch-action: pan-y; }
@@ -188,7 +200,6 @@
             <div class="hidden md:flex items-center space-x-10 text-sm font-medium">
                 <a href="#about" class="navlink">About</a>
                 <a href="#projects" class="navlink">Projects</a>
-                <a href="#repos" class="navlink">Repos</a>
                 <a href="#skills" class="navlink">Skills</a>
                 <a href="#contact" class="navlink">Contact</a>
             </div>
@@ -209,7 +220,6 @@
         <div id="mobileMenu" class="md:hidden hidden mt-4 card-dark rounded-3xl p-4 flex-col gap-1">
             <a href="#about" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">About</a>
             <a href="#projects" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">Projects</a>
-            <a href="#repos" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">Repos</a>
             <a href="#skills" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">Skills</a>
             <a href="#contact" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">Contact</a>
         </div>
@@ -272,48 +282,38 @@
             </div>
         </div>
 
-        <!-- Featured cards -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4" id="projects">
-
-            <!-- Left Card: SmartBudget -->
-            <div class="lg:col-span-4 card-dark p-7 rounded-3xl flex flex-col justify-between opacity-80 hover:opacity-100 transition-opacity reveal">
-                <div class="space-y-3">
-                    <p class="badge-mono">02 — ANDROID · KOTLIN</p>
-                    <h3 class="text-base sm:text-lg font-bold theme-ink font-mono tracking-tight">
-                        SmartBudget — offline finance tracker
-                    </h3>
-                    <p class="text-xs theme-muted leading-relaxed">
-                        Kotlin + Jetpack Compose + Material 3 with Room storage: monthly dashboard, budget limits, category analytics, CSV import/export. 100% offline.
-                    </p>
-                </div>
-
-                <div class="flex items-center justify-between pt-8">
-                    <span class="w-10 h-10 rounded-full border flex items-center justify-center theme-muted" style="border-color: var(--line)" aria-hidden="true">
-                        <i class="fa-brands fa-android text-xs"></i>
-                    </span>
-                    <div class="flex items-center space-x-2">
-                        <a href="https://github.com/ibrahimz-dev/SmartBudget" target="_blank" rel="noopener" class="pill-btn px-4 py-2 rounded-full text-xs theme-muted">View repo</a>
-                        <a href="https://github.com/ibrahimz-dev/SmartBudget" target="_blank" rel="noopener" aria-label="Open SmartBudget repository" class="w-8 h-8 pill-btn rounded-full flex items-center justify-center text-xs theme-muted">
-                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </a>
-                    </div>
-                </div>
+        <!-- Projects -->
+        <div class="pt-4 space-y-6" id="projects">
+            <div>
+                <p class="badge-mono mb-2">SELECTED WORK</p>
+                <h2 class="text-3xl sm:text-4xl font-bold theme-ink">Projects with live proof</h2>
             </div>
 
-            <!-- Right Card: Featured Argus CTI with screenshot carousel -->
-            <div class="lg:col-span-8 card-dark rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-12 shadow-2xl reveal" style="border: 1px solid var(--line-soft)">
+            <!-- 01 · Argus CTI -->
+            <article class="card-dark rounded-3xl p-7 sm:p-9 reveal">
 
                 <!-- Description & Action Content -->
-                <div class="md:col-span-12 p-7 sm:p-9 pb-5 flex flex-col justify-between space-y-6">
+                <div class="flex flex-col justify-between space-y-6">
+                    <div class="flex items-start gap-4 sm:gap-5">
+                        <span class="work-num" aria-hidden="true">01</span>
+                        <div class="space-y-3 flex-1">
+                            <p class="badge-mono">FEATURED · PYTHON + REACT</p>
+                            <h3 class="text-2xl sm:text-3xl font-bold theme-ink font-mono leading-tight">
+                                Argus CTI — threat intelligence platform
+                            </h3>
+                        </div>
+                    </div>
                     <div class="space-y-3">
-                        <p class="badge-mono">01 — FEATURED · PYTHON + REACT</p>
-                        <h3 class="text-xl sm:text-2xl font-bold theme-ink font-mono leading-tight">
-                            Argus CTI — threat intelligence platform
-                        </h3>
                         <p class="text-xs sm:text-sm theme-muted leading-relaxed">
                             Zero-cost CSIRT platform: async FastAPI + ClickHouse + React dashboard on one origin,
                             Groq → Gemini → Ollama fallback, OSINT connectors, STIX/TAXII sharing with TLP enforcement.
                         </p>
+                        <ul class="work-points cols-2">
+                            <li>Executive Overview with live KPIs across 15 feeds</li>
+                            <li>Threat Landscape origin map with ATT&amp;CK techniques</li>
+                            <li>LLM alert sheets with PDF / MISP / STIX exports</li>
+                            <li>ClickHouse Data Explorer with live row counts</li>
+                        </ul>
                         <div class="flex flex-wrap gap-2" aria-label="Stack">
                             <span class="stack-badge">Python</span><span class="stack-badge">FastAPI</span><span class="stack-badge">ClickHouse</span><span class="stack-badge">React</span><span class="stack-badge">Docker</span>
                         </div>
@@ -330,7 +330,7 @@
                 </div>
 
                 <!-- Screenshot carousel: live dashboard captures -->
-                <div class="md:col-span-12 px-7 sm:px-9 pb-7 sm:pb-9">
+                <div class="pt-2">
                     <div class="carousel" data-carousel data-carousel-name="Argus CTI screenshots" aria-roledescription="carousel" aria-label="Argus CTI live screenshots">
                         <div class="car-viewport">
                             <div class="car-track">
@@ -384,15 +384,24 @@
                     </div>
                 </div>
 
-            </div>
-        </div>
+            </article>
 
-        <!-- Full details: remaining projects -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-6">
-            <div class="lg:col-span-6 card-dark p-7 rounded-3xl reveal">
-                <p class="badge-mono mb-3">03 — TYPESCRIPT · EXPO</p>
-                <h3 class="text-base font-bold theme-ink font-mono mb-2">CampusEvents-AI</h3>
+            <!-- 02 · CampusEvents-AI -->
+            <article class="card-dark rounded-3xl p-7 sm:p-9 reveal">
+                <div class="flex items-start gap-4 sm:gap-5 mb-4">
+                    <span class="work-num" aria-hidden="true">02</span>
+                    <div class="flex-1">
+                        <p class="badge-mono">TYPESCRIPT · EXPO · SQLITE</p>
+                        <h3 class="text-2xl sm:text-3xl font-bold theme-ink font-mono mt-1">CampusEvents-AI</h3>
+                    </div>
+                </div>
                 <p class="text-xs theme-muted leading-relaxed mb-4">Expo campus-events app: student catalog, search, favorites, registrations; admin CRUD; LLM assistant; offline-first SQLite.</p>
+                <ul class="work-points cols-2 mb-4">
+                    <li>Student catalog, detail, favorites and registrations</li>
+                    <li>Admin event create / edit flows</li>
+                    <li>Campus AI chat for search and recommendations</li>
+                    <li>Local-first SQLite — fully offline core</li>
+                </ul>
                 <div class="carousel mb-2" data-carousel data-carousel-name="CampusEvents screenshots" aria-roledescription="carousel" aria-label="CampusEvents live app screenshots">
                     <div class="car-viewport">
                         <div class="car-track">
@@ -440,58 +449,47 @@
                 <p class="badge-mono mb-4">LIVE APP SCREENSHOTS — FROM PROJECT PDF</p>
                 <div class="flex flex-wrap gap-2 mb-4" aria-label="Stack"><span class="stack-badge">TypeScript</span><span class="stack-badge">Expo</span><span class="stack-badge">SQLite</span></div>
                 <a href="https://github.com/ibrahimz-dev/CampusEvents-AI" target="_blank" rel="noopener" class="pill-btn px-4 py-2 rounded-full text-xs theme-muted">View repo</a>
-            </div>
-            <div class="lg:col-span-6 card-dark p-7 rounded-3xl reveal">
-                <p class="badge-mono mb-3">04 — PYTHON · ML</p>
-                <h3 class="text-base font-bold theme-ink font-mono mb-2">Smart eCommerce Intelligence</h3>
+            </article>
+
+            <!-- 03 · SmartBudget -->
+            <article class="card-dark rounded-3xl p-7 sm:p-9 reveal">
+                <div class="flex items-start gap-4 sm:gap-5 mb-4">
+                    <span class="work-num" aria-hidden="true">03</span>
+                    <div class="flex-1">
+                        <p class="badge-mono">KOTLIN · COMPOSE · ROOM</p>
+                        <h3 class="text-2xl sm:text-3xl font-bold theme-ink font-mono mt-1">SmartBudget — offline finance tracker</h3>
+                    </div>
+                </div>
+                <p class="text-xs theme-muted leading-relaxed mb-4">Private-first Android finance tracker in Kotlin with Jetpack Compose and Material 3 — monthly dashboard, budget limits, category analytics, search and CSV tools, all stored locally with Room.</p>
+                <ul class="work-points cols-2 mb-4">
+                    <li>Monthly dashboard with budget progress and totals</li>
+                    <li>Category analytics with percentages and comparisons</li>
+                    <li>Search by note/amount with sort and filters</li>
+                    <li>CSV import/export, dark mode, demo-data seeding</li>
+                </ul>
+                <div class="flex flex-wrap gap-2 mb-4" aria-label="Stack"><span class="stack-badge">Kotlin</span><span class="stack-badge">Compose</span><span class="stack-badge">Room</span><span class="stack-badge">Material 3</span></div>
+                <a href="https://github.com/ibrahimz-dev/SmartBudget" target="_blank" rel="noopener" class="pill-btn px-4 py-2 rounded-full text-xs theme-muted">View repo</a>
+            </article>
+
+            <!-- 04 · Smart eCommerce Intelligence -->
+            <article class="card-dark rounded-3xl p-7 sm:p-9 reveal">
+                <div class="flex items-start gap-4 sm:gap-5 mb-4">
+                    <span class="work-num" aria-hidden="true">04</span>
+                    <div class="flex-1">
+                        <p class="badge-mono">PYTHON · SCIKIT-LEARN · KUBEFLOW</p>
+                        <h3 class="text-2xl sm:text-3xl font-bold theme-ink font-mono mt-1">Smart eCommerce Intelligence</h3>
+                    </div>
+                </div>
                 <p class="text-xs theme-muted leading-relaxed mb-4">4,133-product ML suite: scraping agents, RF/XGBoost, clustering, PCA, Apriori, 6-stage Kubeflow pipeline, Streamlit BI, LLM insights.</p>
+                <ul class="work-points cols-2 mb-4">
+                    <li>Shopify/WooCommerce agents — 4,133 cleaned products, 16 categories</li>
+                    <li>RF/XGBoost classification with ROC and confusion matrices</li>
+                    <li>KMeans/DBSCAN clustering, PCA, Apriori, Top-K scoring</li>
+                    <li>6-stage Kubeflow pipeline plus 7-page Streamlit dashboard</li>
+                </ul>
                 <div class="flex flex-wrap gap-2 mb-4" aria-label="Stack"><span class="stack-badge">Python</span><span class="stack-badge">scikit-learn</span><span class="stack-badge">Kubeflow</span><span class="stack-badge">Streamlit</span></div>
                 <a href="https://github.com/ibrahimz-dev/Smart-eCommerce-Intelligence" target="_blank" rel="noopener" class="pill-btn px-4 py-2 rounded-full text-xs theme-muted">View repo</a>
-            </div>
-        </div>
-
-        <!-- All repositories -->
-        <div class="pt-14" id="repos">
-            <p class="badge-mono mb-2">OPEN SOURCE — EVERY REPO</p>
-            <h2 class="text-3xl sm:text-4xl font-bold theme-ink mb-4">All 7 public repositories</h2>
-            <p class="theme-muted text-sm sm:text-base max-w-2xl leading-relaxed mb-8">Everything I build is open. Featured work is above — the complete list, with live status, is here.</p>
-            <div class="grid grid-cols-1 gap-4">
-                <a href="https://github.com/ibrahimz-dev/cert-threat-intelligence-platform" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
-                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">cert-threat-intelligence-platform</span>
-                    <span class="text-xs theme-muted flex-1">Argus CTI — zero-cost CSIRT platform (FastAPI + ClickHouse + React).</span>
-                    <span class="badge-mono whitespace-nowrap">PYTHON · OCT 2026 →</span>
-                </a>
-                <a href="https://github.com/ibrahimz-dev/CampusEvents-AI" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
-                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">CampusEvents-AI</span>
-                    <span class="text-xs theme-muted flex-1">Expo campus-events app with LLM assistant and offline SQLite store.</span>
-                    <span class="badge-mono whitespace-nowrap">TYPESCRIPT · OCT 2026 →</span>
-                </a>
-                <a href="https://github.com/ibrahimz-dev/Smart-eCommerce-Intelligence" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
-                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">Smart-eCommerce-Intelligence</span>
-                    <span class="text-xs theme-muted flex-1">ML suite over 4,133 products: scraping, models, Kubeflow, Streamlit BI.</span>
-                    <span class="badge-mono whitespace-nowrap">PYTHON · OCT 2026 →</span>
-                </a>
-                <a href="https://github.com/ibrahimz-dev/SmartBudget" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
-                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">SmartBudget</span>
-                    <span class="text-xs theme-muted flex-1">Offline Android finance tracker (Kotlin + Compose + Room).</span>
-                    <span class="badge-mono whitespace-nowrap">KOTLIN · OCT 2026 →</span>
-                </a>
-                <a href="https://github.com/ibrahimz-dev/ibrahimz-dev.github.io" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
-                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">ibrahimz-dev.github.io</span>
-                    <span class="text-xs theme-muted flex-1">This portfolio — hand-built static site, dark/light themes.</span>
-                    <span class="badge-mono whitespace-nowrap">HTML · OCT 2026 →</span>
-                </a>
-                <a href="https://github.com/ibrahimz-dev/first-project" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
-                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">first-project</span>
-                    <span class="text-xs theme-muted flex-1">Moroccan food recipe page — first HTML + CSS project.</span>
-                    <span class="badge-mono whitespace-nowrap">HTML · OCT 2026 →</span>
-                </a>
-                <a href="https://github.com/ibrahimz-dev/ibrahimz-dev" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
-                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">ibrahimz-dev</span>
-                    <span class="text-xs theme-muted flex-1">GitHub profile README — skills, activity graph and links.</span>
-                    <span class="badge-mono whitespace-nowrap">PROFILE · OCT 2026 →</span>
-                </a>
-            </div>
+            </article>
         </div>
 
         <!-- Skills -->
@@ -559,7 +557,7 @@
                 <h3 class="text-lg font-bold theme-ink mt-1 mb-2">FST Tanger — LSI 2, DM &amp; SID</h3>
                 <p class="text-sm theme-muted m-0">Data &amp; decision-systems track. Coursework applied in the Smart eCommerce Intelligence project (scraping, ML, Kubeflow, BI dashboard).</p>
             </div>
-            <p class="text-sm theme-muted mt-6">More on GitHub: <a href="https://github.com/ibrahimz-dev?tab=repositories" target="_blank" rel="noopener" class="underline">all 7 public repositories →</a></p>
+            <p class="text-sm theme-muted mt-6">More on GitHub: <a href="https://github.com/ibrahimz-dev?tab=repositories" target="_blank" rel="noopener" class="underline">github.com/ibrahimz-dev →</a></p>
         </div>
 
     </main>
