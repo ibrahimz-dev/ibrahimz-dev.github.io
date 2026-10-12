@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ibrahim Zaryouh — Software Engineer</title>
+  <meta name="description" content="Portfolio of Ibrahim Zaryouh: Android and full-stack developer building intelligent systems — threat intelligence, ML analytics, and mobile apps." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="navbar" id="top">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Ibrahim Zaryouh — home">
+        <img class="brand-mark" src="assets/logo.png" alt="IZ monogram logo" width="30" height="30" />
+        <span class="brand-text">IZ<span class="brand-sep">/</span><span class="brand-sub">dev</span></span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker"><span class="kicker-dot" aria-hidden="true"></span>IBRAHIM ZARYOUH — SOFTWARE ENGINEER</p>
+          <h1 id="hero-heading">Building intelligent systems. Engineering what comes next.</h1>
+          <p class="lede">
+            I build mobile apps, ML analytics pipelines, and security platforms —
+            from Android finance tracking to campus AI assistants and a zero-budget
+            cyber threat intelligence stack.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn btn-ghost" href="#contact">Contact me</a>
+          </div>
+          <dl class="hero-meta">
+            <div><dt>Focus</dt><dd>Mobile · ML · CTI</dd></div>
+            <div><dt>Base</dt><dd>Morocco — open to remote</dd></div>
+            <div><dt>GitHub</dt><dd><a href="https://github.com/ibrahimz-dev">github.com/ibrahimz-dev</a></dd></div>
+          </dl>
+        </div>
+        <div class="hero-visual" aria-hidden="false">
+          <img class="hero-logo" src="assets/logo.png" alt="IZ emblem — geometric monogram over dark mountains" width="520" height="520" fetchpriority="high" />
+        </div>
+      </div>
+      <div class="ridge" aria-hidden="true">
+        <svg viewBox="0 0 1440 180" preserveAspectRatio="none" role="presentation">
+          <defs>
+            <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#287BFF" />
+              <stop offset="1" stop-color="#11C8F4" />
+            </linearGradient>
+          </defs>
+          <path class="ridge-back" d="M0,150 L120,110 L260,135 L400,80 L540,120 L680,60 L820,115 L960,85 L1100,125 L1240,95 L1360,120 L1440,105 L1440,180 L0,180 Z" />
+          <path class="ridge-front" d="M0,165 L150,135 L300,155 L470,115 L640,150 L800,120 L980,152 L1140,128 L1300,150 L1440,138 L1440,180 L0,180 Z" />
+          <path class="ridge-rim" d="M0,150 L120,110 L260,135 L400,80 L540,120 L680,60 L820,115 L960,85 L1100,125 L1240,95 L1360,120 L1440,105" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <p class="section-kicker">01 / SELECTED WORK</p>
+        <h2 id="projects-heading">Featured projects</h2>
+        <p class="section-sub">Real repositories, real stacks. Source code on GitHub — no mockups, no invented metrics.</p>
+
+        <div class="project-grid">
+          <article class="card card-featured reveal">
+            <div class="card-top"><span class="mono">01 — FEATURED</span><span class="lang-dot" aria-hidden="true"></span></div>
+            <h3>Argus CTI — Cyber Threat Intelligence Platform</h3>
+            <p>
+              Zero-cost, production-oriented CTI platform for a CSIRT team: async FastAPI API serving
+              a React dashboard on one origin, ClickHouse OLAP storage, and a Groq → Gemini → local
+              Ollama LLM fallback chain. OSINT connectors, TLP enforcement, RBAC, and alerting included.
+            </p>
+            <ul class="badges" aria-label="Stack">
+              <li>Python</li><li>FastAPI</li><li>ClickHouse</li><li>React</li><li>Docker</li><li>STIX 2.1 / TAXII 2.1</li>
+            </ul>
+            <div class="card-links">
+              <a href="https://github.com/ibrahimz-dev/cert-threat-intelligence-platform">Repository →</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-top"><span class="mono">02</span><span class="lang-dot" aria-hidden="true"></span></div>
+            <h3>CampusEvents-AI</h3>
+            <p>
+              React Native (Expo) campus-events app: students browse, search, favorite, and register
+              for events; admins manage the catalog. AI assistant for natural-language search and
+              recommendations, local-first SQLite storage.
+            </p>
+            <ul class="badges" aria-label="Stack">
+              <li>TypeScript</li><li>Expo</li><li>React Native</li><li>SQLite</li><li>Groq / OpenAI / Mistral</li>
+            </ul>
+            <div class="card-links">
+              <a href="https://github.com/ibrahimz-dev/CampusEvents-AI">Repository →</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-top"><span class="mono">03</span><span class="lang-dot" aria-hidden="true"></span></div>
+            <h3>Smart eCommerce Intelligence</h3>
+            <p>
+              E-commerce analytics over 4,133 cleaned products: Shopify/WooCommerce scraping agents,
+              RandomForest/XGBoost classification, KMeans/DBSCAN clustering, PCA and Apriori rules,
+              a 6-stage Kubeflow pipeline, Streamlit BI dashboard, and LLM enrichment.
+            </p>
+            <ul class="badges" aria-label="Stack">
+              <li>Python</li><li>scikit-learn</li><li>Kubeflow</li><li>Streamlit</li><li>Docker</li>
+            </ul>
+            <div class="card-links">
+              <a href="https://github.com/ibrahimz-dev/Smart-eCommerce-Intelligence">Repository →</a>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-top"><span class="mono">04</span><span class="lang-dot" aria-hidden="true"></span></div>
+            <h3>SmartBudget</h3>
+            <p>
+              Private-first Android finance tracker in Kotlin with Jetpack Compose and Material 3:
+              monthly dashboard, budget limits, category analytics, search &amp; filter, CSV
+              import/export, dark mode — all stored locally with Room.
+            </p>
+            <ul class="badges" aria-label="Stack">
+              <li>Kotlin</li><li>Jetpack Compose</li><li>Room</li><li>Material 3</li>
+            </ul>
+            <div class="card-links">
+              <a href="https://github.com/ibrahimz-dev/SmartBudget">Repository →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section section-alt" id="about" aria-labelledby="about-heading">
+      <div class="container narrow">
+        <p class="section-kicker">02 / PROFILE</p>
+        <h2 id="about-heading">About</h2>
+        <p>
+          I'm Ibrahim Zaryouh, a software engineering student working across mobile, data, and
+          security. My projects share one thread: local-first, cost-conscious engineering —
+          Room databases instead of backends, free-tier LLM chains instead of paid APIs,
+          SQLite instead of servers.
+        </p>
+        <p>
+          Recent work includes the Argus CTI platform (FastAPI + ClickHouse + React), the
+          CampusEvents-AI Expo app, an ML-driven e-commerce intelligence suite with Kubeflow,
+          and SmartBudget, a fully offline Android finance app.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <p class="section-kicker">03 / CAPABILITIES</p>
+        <h2 id="skills-heading">Technical skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3><span class="mono">MOBILE</span>Mobile</h3>
+            <ul><li>Kotlin</li><li>Jetpack Compose / Material 3</li><li>Room</li><li>Expo / React Native</li></ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3><span class="mono">WEB/API</span>Backend &amp; frontend</h3>
+            <ul><li>Python / FastAPI</li><li>TypeScript / React</li><li>Node.js / Express</li><li>Vite / Tailwind</li></ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3><span class="mono">ML/AI</span>Data &amp; ML</h3>
+            <ul><li>scikit-learn / XGBoost</li><li>KMeans / DBSCAN / PCA / Apriori</li><li>Kubeflow pipelines</li><li>Streamlit dashboards</li><li>Groq / OpenAI / Ollama</li></ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3><span class="mono">DATA/OPS</span>Data &amp; ops</h3>
+            <ul><li>SQLite / Room</li><li>ClickHouse</li><li>STIX 2.1 / TAXII 2.1</li><li>Docker / Compose</li><li>GitHub Actions</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section section-alt" id="education" aria-labelledby="education-heading">
+      <div class="container narrow">
+        <p class="section-kicker">04 / BACKGROUND</p>
+        <h2 id="education-heading">Education</h2>
+        <ol class="timeline">
+          <li class="reveal">
+            <p class="mono">2025 — 2026</p>
+            <h3>FST Tanger — LSI 2, DM &amp; SID</h3>
+            <p>Data &amp; decision-systems track. Coursework applied in the Smart eCommerce Intelligence project (scraping, ML, Kubeflow, BI dashboard).</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="container narrow contact-box reveal">
+        <p class="section-kicker">05 / CONTACT</p>
+        <h2 id="contact-heading">Let's build something.</h2>
+        <p>Open to internships, freelance work, and collaboration on mobile, ML, or security tooling.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:zaryouh.ibrahimx@gmail.com">zaryouh.ibrahimx@gmail.com</a>
+          <a class="btn btn-ghost" href="https://github.com/ibrahimz-dev">GitHub profile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Ibrahim Zaryouh — Built with the IZ identity. No trackers, no frameworks.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
