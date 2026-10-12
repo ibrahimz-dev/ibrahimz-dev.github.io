@@ -1,503 +1,373 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ibrahim Zaryouh — Software Engineer</title>
-  <meta name="description" content="Portfolio of Ibrahim Zaryouh: Android and full-stack developer building intelligent systems — threat intelligence, ML analytics, and mobile apps." />
-  <meta name="theme-color" content="#05070B" />
-  <link rel="canonical" href="https://ibrahimz-dev.github.io/" />
-  <meta property="og:title" content="Ibrahim Zaryouh — Software Engineer" />
-  <meta property="og:description" content="Building intelligent systems. Engineering what comes next. Mobile apps, ML analytics, and threat intelligence platforms." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ibrahimz-dev.github.io/" />
-  <meta property="og:image" content="https://ibrahimz-dev.github.io/assets/logo.png" />
-  <link rel="icon" type="image/png" href="assets/logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <script>
-    // Apply saved theme before paint (default: dark)
-    try {
-      var t = localStorage.getItem('iz-theme');
-      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-      else if (window.matchMedia('(prefers-color-scheme: light)').matches) document.documentElement.setAttribute('data-theme', 'light');
-    } catch (e) {}
-  </script>
-  <style>
-    :root, [data-theme="dark"] {
-      --bg: #05070B;
-      --bg-soft: #080d17;
-      --surface: #0B1220;
-      --surface-2: #0E1626;
-      --line: #1C2942;
-      --accent: #287BFF;
-      --accent-soft: rgba(40, 123, 255, 0.12);
-      --cyan: #11C8F4;
-      --ink: #F4F7FC;
-      --muted: #A7B3C7;
-      --faint: #8493AA;
-      --hero-glow-a: rgba(40, 123, 255, 0.16);
-      --hero-glow-b: rgba(17, 200, 244, 0.08);
-      --ridge-back: #0A1120;
-      --ridge-front: #060B15;
-      --card-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-      --nav-bg: rgba(5, 7, 11, 0.88);
-      color-scheme: dark;
-    }
-    [data-theme="light"] {
-      --bg: #F7F8FA;
-      --bg-soft: #EFF2F6;
-      --surface: #FFFFFF;
-      --surface-2: #FFFFFF;
-      --line: #E0E6F0;
-      --accent: #1D5FD1;
-      --accent-soft: rgba(29, 95, 209, 0.08);
-      --cyan: #0B8FB4;
-      --ink: #0B1220;
-      --muted: #475569;
-      --faint: #64748B;
-      --hero-glow-a: rgba(40, 123, 255, 0.10);
-      --hero-glow-b: rgba(17, 200, 244, 0.08);
-      --ridge-back: #DCE5F2;
-      --ridge-front: #C4D2E8;
-      --card-shadow: 0 12px 28px rgba(15, 30, 60, 0.10);
-      --nav-bg: rgba(247, 248, 250, 0.88);
-      color-scheme: light;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ibrahim Zaryouh — Software Engineer</title>
+    <meta name="description" content="Portfolio of Ibrahim Zaryouh: Android and full-stack developer building intelligent systems — threat intelligence, ML analytics, and mobile apps." />
+    <meta name="theme-color" content="#0e0f11" />
+    <link rel="canonical" href="https://ibrahimz-dev.github.io/" />
+    <meta property="og:title" content="Ibrahim Zaryouh — Software Engineer" />
+    <meta property="og:description" content="Building intelligent systems. Engineering what comes next. Mobile apps, ML analytics, and threat intelligence platforms." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ibrahimz-dev.github.io/" />
+    <meta property="og:image" content="https://ibrahimz-dev.github.io/assets/logo.png" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
-    body {
-      margin: 0; background: var(--bg); color: var(--ink);
-      font-family: "Inter", system-ui, sans-serif;
-      font-size: 1rem; line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      transition: background 0.25s ease, color 0.25s ease;
-    }
-    h1, h2, h3 { font-family: "Space Grotesk", system-ui, sans-serif; line-height: 1.14; letter-spacing: -0.01em; }
-    a { color: var(--cyan); }
-    .container { width: min(1120px, 92vw); margin: 0 auto; }
-    .narrow { width: min(780px, 92vw); margin: 0 auto; }
-    .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); }
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0e0f11',
+                        brandCard: '#16171a',
+                        brandBorder: '#24262b',
+                        brandMuted: '#8a8f98'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
 
-    .skip-link { position: absolute; left: -9999px; top: 0; background: var(--cyan); color: #04121a; padding: 0.6rem 1rem; z-index: 100; font-weight: 600; border-radius: 0 0 8px 0; }
-    .skip-link:focus { left: 0; top: 0; }
-    a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital@1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    /* ---------- Navbar ---------- */
-    .navbar { position: sticky; top: 0; z-index: 50; background: var(--nav-bg); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 62px; gap: 1rem; }
-    .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--ink); }
-    .brand-mark { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); display: block; }
-    .brand-text { font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: 0.04em; }
-    .brand-sub { color: var(--cyan); font-family: "JetBrains Mono", monospace; font-size: 0.82em; }
-    .nav-right { display: flex; align-items: center; gap: 0.6rem; }
-    .nav-links { display: flex; align-items: center; gap: 1.2rem; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
-    .nav-links a:hover { color: var(--ink); }
-    .theme-btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 38px; height: 38px; border-radius: 9px; cursor: pointer;
-      background: var(--surface-2); border: 1px solid var(--line); color: var(--ink);
-    }
-    .theme-btn:hover { border-color: var(--accent); }
-    .theme-btn svg { width: 18px; height: 18px; }
-    .theme-btn .icon-sun { display: none; }
-    [data-theme="light"] .theme-btn .icon-sun { display: block; }
-    [data-theme="light"] .theme-btn .icon-moon { display: none; }
-    .menu-btn { display: none; }
-    .nav-cta { border: 1px solid var(--line); border-radius: 8px; padding: 0.42rem 0.9rem !important; color: var(--ink) !important; }
-    .nav-cta:hover { border-color: var(--accent); }
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-    /* ---------- Hero ---------- */
-    .hero { position: relative; overflow: hidden; padding: 4.2rem 0 0; }
-    .hero::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(720px 320px at 78% 6%, var(--hero-glow-a), transparent 65%),
-        radial-gradient(560px 260px at 10% 28%, var(--hero-glow-b), transparent 65%);
-    }
-    .hero-grid { position: relative; display: grid; gap: 2.5rem; align-items: center; grid-template-columns: 1.15fr 0.85fr; padding-bottom: 2rem; }
-    .kicker { display: flex; align-items: center; gap: 0.6rem; color: var(--cyan); margin: 0 0 1rem; }
-    .kicker-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
-    h1 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); margin: 0 0 1rem; }
-    .lede { color: var(--muted); font-size: 1.07rem; max-width: 56ch; margin: 0 0 1.6rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.8rem; }
-    .btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 0.7rem 1.25rem; border-radius: 8px; border: 1px solid transparent; }
-    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--cyan)); color: #fff; }
-    [data-theme="light"] .btn-primary { color: #fff; }
-    .btn-primary:hover { filter: brightness(1.08); box-shadow: 0 6px 20px var(--accent-soft), 0 0 16px var(--accent-soft); }
-    .btn-ghost { border-color: var(--line); color: var(--ink); background: var(--surface); }
-    .btn-ghost:hover { border-color: var(--accent); }
-    .hero-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 0; }
-    .hero-meta div { display: grid; gap: 0.1rem; }
-    .hero-meta dt { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--faint); text-transform: uppercase; }
-    .hero-meta dd { margin: 0; font-size: 0.93rem; }
-    .hero-meta a { color: var(--ink); }
-    .hero-visual { display: flex; justify-content: center; }
-    .hero-logo { width: min(360px, 70vw); height: auto; border-radius: 50%; border: 1px solid var(--line); box-shadow: var(--card-shadow); }
-    .ridge { line-height: 0; }
-    .ridge svg { width: 100%; height: 120px; display: block; }
-    .ridge-back { fill: var(--ridge-back); }
-    .ridge-front { fill: var(--ridge-front); }
+    <script>
+      // Apply saved theme before paint (default: dark, like the reference)
+      try {
+        var t = localStorage.getItem('iz-theme');
+        if (t === 'light') document.documentElement.classList.remove('dark');
+        else if (t === 'dark') document.documentElement.classList.add('dark');
+        else if (window.matchMedia('(prefers-color-scheme: light)').matches) document.documentElement.classList.remove('dark');
+      } catch (e) {}
+    </script>
 
-    /* ---------- Sections ---------- */
-    .section { padding: 3.8rem 0; }
-    .section-alt { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .section h2 { font-size: clamp(1.55rem, 3vw, 2.1rem); margin: 0 0 0.6rem; }
-    .section-sub { color: var(--muted); margin: 0 0 2rem; max-width: 72ch; }
-    .about p { color: var(--muted); }
-    .about p strong { color: var(--ink); font-weight: 600; }
-
-    /* ---------- Skills ---------- */
-    .skills-grid { display: grid; gap: 1rem; grid-template-columns: repeat(4, 1fr); }
-    .skill-group { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; transition: border-color 0.2s ease, transform 0.2s ease; }
-    .skill-group:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .skill-group h3 { font-size: 1rem; margin: 0 0 0.7rem; display: grid; gap: 0.25rem; }
-    .skill-group ul { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: 0.92rem; display: grid; gap: 0.3rem; }
-
-    /* ---------- Projects ---------- */
-    .project-grid { display: grid; gap: 1.1rem; grid-template-columns: 1fr 1fr; }
-    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; }
-    .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--card-shadow); }
-    .card-featured { grid-column: 1 / -1; border-left: 3px solid var(--accent); }
-    .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
-    .lang-dot { width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--cyan)); }
-    .card h3 { margin: 0 0 0.6rem; font-size: 1.22rem; }
-    .card p { color: var(--muted); margin: 0 0 0.9rem; font-size: 0.95rem; }
-    .card ul.feats { margin: 0 0 1rem; padding-left: 1.15rem; color: var(--muted); font-size: 0.9rem; display: grid; gap: 0.28rem; }
-    .badges { display: flex; flex-wrap: wrap; gap: 0.45rem; list-style: none; margin: 0 0 1.1rem; padding: 0; }
-    .badges li { font-family: "JetBrains Mono", monospace; font-size: 0.71rem; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 0.22rem 0.65rem; background: var(--accent-soft); }
-    .card-links a { font-weight: 600; text-decoration: none; }
-    .card-links a:hover { text-decoration: underline; }
-    .more-row { margin-top: 1.4rem; color: var(--muted); font-size: 0.93rem; }
-
-    /* ---------- Timeline / contact / footer ---------- */
-    .timeline { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 1.2rem; }
-    .timeline li { border-left: 2px solid var(--accent); padding-left: 1.1rem; }
-    .timeline h3 { margin: 0.25rem 0 0.4rem; }
-    .timeline p { color: var(--muted); margin: 0; }
-    .contact-box { border: 1px solid var(--line); border-radius: 12px; padding: 2.2rem; background: var(--surface); }
-    .footer { border-top: 1px solid var(--line); padding: 1.4rem 0; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .footer p { color: var(--faint); font-size: 0.87rem; margin: 0; }
-    .footer a { color: var(--muted); font-size: 0.87rem; }
-
-    /* ---------- Reveal ---------- */
-    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-      body { transition: none; }
-    }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 920px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-visual { order: -1; }
-      .hero-logo { width: min(230px, 58vw); }
-      .project-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .menu-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 9px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); cursor: pointer; font-size: 1.05rem; }
-      .nav-links { display: none; position: absolute; top: 62px; right: 4vw; flex-direction: column; align-items: stretch; gap: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0.5rem; min-width: 190px; box-shadow: var(--card-shadow); }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 0.6rem 0.8rem; border-radius: 6px; }
-      .nav-links a:hover { background: var(--accent-soft); }
-      .nav-right { position: relative; }
-    }
-    @media (max-width: 560px) {
-      .skills-grid { grid-template-columns: 1fr; }
-      .section { padding: 3rem 0; }
-    }
-  </style>
+    <style>
+        :root {
+            --bg: #f7f8fa; --surface: #ffffff; --surface-2: #ffffff;
+            --line: #e2e8f0; --line-soft: rgba(15, 23, 42, 0.08);
+            --ink: #0e0f11; --muted: #5b6470; --faint: #8a8f98;
+            --pill-bg: rgba(15, 23, 42, 0.04); --pill-line: rgba(15, 23, 42, 0.12);
+            --pill-hover: rgba(15, 23, 42, 0.10);
+            --card-grad: linear-gradient(145deg, #ffffff 0%, #f1f4f8 100%);
+            --nav-line: rgba(15, 23, 42, 0.10);
+            --glow: 0 12px 28px rgba(15, 30, 60, 0.10);
+            color-scheme: light;
+        }
+        html.dark {
+            --bg: #0e0f11; --surface: #16171a; --surface-2: #111215;
+            --line: #24262b; --line-soft: rgba(255, 255, 255, 0.07);
+            --ink: #f3f4f6; --muted: #8a8f98; --faint: #8a8f98;
+            --pill-bg: rgba(255, 255, 255, 0.04); --pill-line: rgba(255, 255, 255, 0.08);
+            --pill-hover: rgba(255, 255, 255, 0.12);
+            --card-grad: linear-gradient(145deg, #16171a 0%, #111215 100%);
+            --nav-line: rgba(255, 255, 255, 0.10);
+            --glow: 0 12px 32px rgba(0, 0, 0, 0.35);
+            color-scheme: dark;
+        }
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+        body {
+            background-color: var(--bg); color: var(--ink);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden; transition: background-color 0.25s ease, color 0.25s ease;
+        }
+        .bg-line-art { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.15; }
+        html:not(.dark) .bg-line-art { opacity: 0.10; }
+        .pill-btn {
+            background: var(--pill-bg); border: 1px solid var(--pill-line);
+            backdrop-filter: blur(8px); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .pill-btn:hover { background: var(--pill-hover); border-color: var(--faint); transform: translateY(-2px); }
+        .card-dark { background: var(--card-grad); border: 1px solid var(--line-soft); }
+        .fluid-mesh-bg { background: radial-gradient(circle at 50% 50%, rgba(40, 123, 255, 0.35), rgba(17, 200, 244, 0.18), rgba(14, 15, 17, 0.95)); }
+        html:not(.dark) .fluid-mesh-bg { background: radial-gradient(circle at 50% 50%, rgba(40, 123, 255, 0.25), rgba(17, 200, 244, 0.15), rgba(241, 244, 248, 0.95)); }
+        .theme-ink { color: var(--ink); }
+        .theme-muted { color: var(--muted); }
+        .theme-surface { background-color: var(--surface); border-color: var(--line); }
+        .badge-mono { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+        .stack-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.22rem 0.65rem; color: var(--ink); background: var(--pill-bg); }
+        .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+        a:focus-visible, button:focus-visible { outline: 2px solid #287BFF; outline-offset: 3px; border-radius: 6px; }
+        .skip-link { position: absolute; left: -9999px; top: 0; background: #287BFF; color: #fff; padding: 0.6rem 1rem; z-index: 100; font-weight: 600; }
+        .skip-link:focus { left: 0; top: 0; }
+        #themeBtn .icon-sun { display: none; }
+        html:not(.dark) #themeBtn .icon-sun { display: block; }
+        html:not(.dark) #themeBtn .icon-moon { display: none; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+        }
+    </style>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body class="min-h-screen flex flex-col justify-between relative selection:bg-white selection:text-black">
+    <a class="skip-link" href="#projects">Skip to content</a>
 
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Ibrahim Zaryouh — home">
-        <img class="brand-mark" src="assets/logo.png" alt="IZ monogram logo" width="30" height="30" />
-        <span class="brand-text">IZ<span class="brand-sub">/dev</span></span>
-      </a>
-      <div class="nav-right">
-        <nav aria-label="Primary">
-          <ul class="nav-links" id="navLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact" class="nav-cta">Contact</a></li>
-          </ul>
+    <svg class="bg-line-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-100,150 C300,50 700,350 1540,80" stroke="currentColor" stroke-width="1.2" fill="none" class="theme-muted"/>
+        <path d="M-100,750 C400,850 850,200 1540,650" stroke="currentColor" stroke-width="1" fill="none" class="theme-muted"/>
+        <path d="M250,-100 C450,450 150,650 750,1000" stroke="currentColor" stroke-width="0.8" fill="none" class="theme-muted"/>
+    </svg>
+
+    <header class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-4">
+        <nav class="flex justify-between items-center border-b pb-6" style="border-color: var(--nav-line)" aria-label="Primary">
+            <!-- Brand Logo -->
+            <a href="#top" class="flex items-center space-x-3 text-left group">
+                <img src="assets/logo.png" alt="IZ monogram emblem" class="w-9 h-9 rounded-full" style="border: 1px solid var(--line)" />
+                <span>
+                    <span class="block text-sm font-bold tracking-tight theme-ink group-hover:opacity-70 transition-opacity">Ibrahim</span>
+                    <span class="block text-xs font-normal theme-muted tracking-wider">Zaryouh</span>
+                </span>
+            </a>
+
+            <!-- Central Nav Links -->
+            <div class="hidden md:flex items-center space-x-10 text-sm font-medium theme-muted">
+                <a href="#about" class="hover:opacity-100 hover:theme-ink transition-colors">About</a>
+                <a href="#projects" class="hover:theme-ink transition-colors">Projects</a>
+                <a href="#skills" class="hover:theme-ink transition-colors">Skills</a>
+                <a href="#contact" class="hover:theme-ink transition-colors">Contact</a>
+            </div>
+
+            <!-- Theme Switcher Circle -->
+            <button id="themeBtn" type="button" aria-label="Switch to light theme" aria-pressed="false" class="w-12 h-12 rounded-full pill-btn flex flex-col items-center justify-center text-[11px] font-mono leading-tight transition-all">
+                <svg class="icon-moon w-4 h-4 theme-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+                <svg class="icon-sun w-4 h-4 theme-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                <span class="theme-muted" id="themeLabel">Dark</span>
+            </button>
         </nav>
-        <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme" aria-pressed="false">
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-        </button>
-        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <main id="main">
-    <!-- HERO -->
-    <section class="hero" id="top" aria-labelledby="hero-heading">
-      <div class="container hero-grid">
+    <main id="top" class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-10 my-auto flex-grow flex flex-col justify-center">
+
+        <!-- Hero Section Headline Block -->
+        <div class="space-y-6 lg:space-y-8" id="about">
+
+            <!-- Headline Row 1 -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-bold tracking-tight theme-ink leading-none">
+                    Building intelligent
+                </h1>
+
+                <!-- Projects CTA Button -->
+                <div class="inline-flex items-center space-x-2 self-start md:self-auto pt-2 md:pt-0">
+                    <a href="#projects" class="bg-white text-brandDark hover:bg-gray-200 px-8 py-3.5 rounded-full font-medium text-sm sm:text-base flex items-center shadow-lg transition-all transform hover:scale-105">
+                        <span class="italic font-serif font-normal mr-2">Projects</span>
+                    </a>
+                    <a href="#projects" aria-label="Jump to projects" class="w-12 h-12 bg-white text-brandDark hover:bg-gray-200 rounded-full flex items-center justify-center transition-all transform hover:scale-105 shadow-lg">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Headline Row 2: Subtitle Paragraph + continuation -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-8 pt-2">
+                <p class="theme-muted text-sm sm:text-base max-w-md leading-relaxed font-light">
+                    Software engineering student crafting <span class="italic font-serif theme-ink">mobile apps</span>,
+                    <span class="italic font-serif theme-ink">ML analytics</span> and
+                    <span class="italic font-serif theme-ink">threat-intel platforms</span> — Android, Python, TypeScript.
+                </p>
+
+                <p class="text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-bold tracking-tight theme-ink leading-none md:text-right" aria-hidden="true">
+                    systems.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact pills (real links only) -->
+        <div class="flex flex-wrap items-center gap-3 sm:gap-4 my-10 pt-4" id="contact">
+            <a href="https://github.com/ibrahimz-dev" target="_blank" rel="noopener" class="pill-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium theme-ink flex items-center space-x-2.5">
+                <i class="fa-brands fa-github text-sm"></i>
+                <span>Github</span>
+            </a>
+            <a href="mailto:zaryouh.ibrahimx@gmail.com" class="pill-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium theme-ink flex items-center space-x-2.5">
+                <i class="fa-solid fa-envelope text-xs"></i>
+                <span class="italic font-serif">Email</span>
+            </a>
+            <a href="https://ibrahimz-dev.github.io/" class="pill-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium theme-ink flex items-center space-x-2.5">
+                <i class="fa-solid fa-globe text-xs"></i>
+                <span>Live site</span>
+            </a>
+        </div>
+
+        <!-- Featured cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-4" id="projects">
+
+            <!-- Left Card: SmartBudget -->
+            <div class="lg:col-span-4 card-dark p-7 rounded-3xl flex flex-col justify-between opacity-80 hover:opacity-100 transition-opacity reveal">
+                <div class="space-y-3">
+                    <p class="badge-mono">02 — ANDROID · KOTLIN</p>
+                    <h3 class="text-base sm:text-lg font-bold theme-ink font-mono tracking-tight">
+                        SmartBudget — offline finance tracker
+                    </h3>
+                    <p class="text-xs theme-muted leading-relaxed">
+                        Kotlin + Jetpack Compose + Material 3 with Room storage: monthly dashboard, budget limits, category analytics, CSV import/export. 100% offline.
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-between pt-8">
+                    <span class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center theme-muted" aria-hidden="true">
+                        <i class="fa-brands fa-android text-xs"></i>
+                    </span>
+                    <div class="flex items-center space-x-2">
+                        <a href="https://github.com/ibrahimz-dev/SmartBudget" target="_blank" rel="noopener" class="pill-btn px-4 py-2 rounded-full text-xs theme-muted">View repo</a>
+                        <a href="https://github.com/ibrahimz-dev/SmartBudget" target="_blank" rel="noopener" aria-label="Open SmartBudget repository" class="w-8 h-8 pill-btn rounded-full flex items-center justify-center text-xs theme-muted">
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Card: Featured Argus CTI with IZ visual -->
+            <div class="lg:col-span-8 card-dark rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-12 shadow-2xl reveal" style="border: 1px solid var(--line-soft)">
+
+                <!-- Left Visual Graphic Section -->
+                <div class="md:col-span-5 relative min-h-[220px] md:min-h-full fluid-mesh-bg flex items-center justify-center p-6 overflow-hidden">
+                    <img src="assets/logo.png" alt="IZ emblem — geometric monogram over dark mountains" class="relative w-36 h-36 rounded-full object-cover shadow-2xl" style="border: 1px solid rgba(255,255,255,0.3)" />
+                </div>
+
+                <!-- Right Description & Action Content -->
+                <div class="md:col-span-7 p-7 sm:p-9 flex flex-col justify-between space-y-6">
+                    <div class="space-y-3">
+                        <p class="badge-mono">01 — FEATURED · PYTHON + REACT</p>
+                        <h3 class="text-xl sm:text-2xl font-bold theme-ink font-mono leading-tight">
+                            Argus CTI — threat intelligence platform
+                        </h3>
+                        <p class="text-xs sm:text-sm theme-muted leading-relaxed">
+                            Zero-cost CSIRT platform: async FastAPI + ClickHouse + React dashboard on one origin,
+                            Groq → Gemini → Ollama fallback, OSINT connectors, STIX/TAXII sharing with TLP enforcement.
+                        </p>
+                        <div class="flex flex-wrap gap-2" aria-label="Stack">
+                            <span class="stack-badge">Python</span><span class="stack-badge">FastAPI</span><span class="stack-badge">ClickHouse</span><span class="stack-badge">React</span><span class="stack-badge">Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-3 pt-2">
+                        <a href="https://github.com/ibrahimz-dev/cert-threat-intelligence-platform" target="_blank" rel="noopener" class="bg-white text-brandDark hover:bg-gray-200 px-7 py-2.5 rounded-full font-medium text-xs sm:text-sm transition-colors shadow">
+                            View repo
+                        </a>
+                        <a href="https://github.com/ibrahimz-dev/cert-threat-intelligence-platform" target="_blank" rel="noopener" aria-label="Open Argus CTI repository" class="w-10 h-10 bg-white text-brandDark hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Full details: remaining projects -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-6">
+            <div class="lg:col-span-6 card-dark p-7 rounded-3xl reveal">
+                <p class="badge-mono mb-3">03 — TYPESCRIPT · EXPO</p>
+                <h3 class="text-base font-bold theme-ink font-mono mb-2">CampusEvents-AI</h3>
+                <p class="text-xs theme-muted leading-relaxed mb-4">Expo campus-events app: student catalog, search, favorites, registrations; admin CRUD; LLM assistant; offline-first SQLite.</p>
+                <div class="flex flex-wrap gap-2 mb-4" aria-label="Stack"><span class="stack-badge">TypeScript</span><span class="stack-badge">Expo</span><span class="stack-badge">SQLite</span></div>
+                <a href="https://github.com/ibrahimz-dev/CampusEvents-AI" target="_blank" rel="noopener" class="pill-btn px-4 py-2 rounded-full text-xs theme-muted">View repo</a>
+            </div>
+            <div class="lg:col-span-6 card-dark p-7 rounded-3xl reveal">
+                <p class="badge-mono mb-3">04 — PYTHON · ML</p>
+                <h3 class="text-base font-bold theme-ink font-mono mb-2">Smart eCommerce Intelligence</h3>
+                <p class="text-xs theme-muted leading-relaxed mb-4">4,133-product ML suite: scraping agents, RF/XGBoost, clustering, PCA, Apriori, 6-stage Kubeflow pipeline, Streamlit BI, LLM insights.</p>
+                <div class="flex flex-wrap gap-2 mb-4" aria-label="Stack"><span class="stack-badge">Python</span><span class="stack-badge">scikit-learn</span><span class="stack-badge">Kubeflow</span><span class="stack-badge">Streamlit</span></div>
+                <a href="https://github.com/ibrahimz-dev/Smart-eCommerce-Intelligence" target="_blank" rel="noopener" class="pill-btn px-4 py-2 rounded-full text-xs theme-muted">View repo</a>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="pt-14" id="skills">
+            <p class="badge-mono mb-2">SKILLS — GROUPED BY USE</p>
+            <h2 class="text-3xl sm:text-4xl font-bold theme-ink mb-6">Technical skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-dark p-6 rounded-3xl reveal">
+                    <p class="badge-mono mb-2">MOBILE</p>
+                    <ul class="text-sm theme-muted space-y-1.5 list-none p-0 m-0"><li>Kotlin</li><li>Jetpack Compose / Material 3</li><li>Room</li><li>Expo / React Native</li><li>Gradle</li></ul>
+                </div>
+                <div class="card-dark p-6 rounded-3xl reveal">
+                    <p class="badge-mono mb-2">WEB / API</p>
+                    <ul class="text-sm theme-muted space-y-1.5 list-none p-0 m-0"><li>Python / FastAPI</li><li>TypeScript / React</li><li>Node.js / Express</li><li>Vite / Tailwind</li><li>HTML / CSS</li></ul>
+                </div>
+                <div class="card-dark p-6 rounded-3xl reveal">
+                    <p class="badge-mono mb-2">ML / AI</p>
+                    <ul class="text-sm theme-muted space-y-1.5 list-none p-0 m-0"><li>scikit-learn / XGBoost</li><li>KMeans / DBSCAN / PCA</li><li>Kubeflow pipelines</li><li>Streamlit</li><li>Groq / OpenAI / Ollama</li></ul>
+                </div>
+                <div class="card-dark p-6 rounded-3xl reveal">
+                    <p class="badge-mono mb-2">DATA / OPS</p>
+                    <ul class="text-sm theme-muted space-y-1.5 list-none p-0 m-0"><li>SQLite / Room</li><li>ClickHouse</li><li>STIX 2.1 / TAXII 2.1</li><li>Docker / Compose</li><li>GitHub Actions</li></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="pt-14 max-w-3xl">
+            <p class="badge-mono mb-2">BACKGROUND</p>
+            <h2 class="text-3xl sm:text-4xl font-bold theme-ink mb-6">Education</h2>
+            <div class="card-dark p-7 rounded-3xl reveal" style="border-left: 2px solid #287BFF">
+                <p class="badge-mono">2025 — 2026</p>
+                <h3 class="text-lg font-bold theme-ink mt-1 mb-2">FST Tanger — LSI 2, DM &amp; SID</h3>
+                <p class="text-sm theme-muted m-0">Data &amp; decision-systems track. Coursework applied in the Smart eCommerce Intelligence project (scraping, ML, Kubeflow, BI dashboard).</p>
+            </div>
+            <p class="text-sm theme-muted mt-6">More on GitHub: <a href="https://github.com/ibrahimz-dev?tab=repositories" target="_blank" rel="noopener" class="underline">all 7 public repositories →</a></p>
+        </div>
+
+    </main>
+
+    <footer class="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 py-6 border-t flex flex-col sm:flex-row justify-between items-center text-xs theme-muted gap-4" style="border-color: var(--nav-line)">
         <div>
-          <p class="kicker mono"><span class="kicker-dot" aria-hidden="true"></span>IBRAHIM ZARYOUH — SOFTWARE ENGINEER</p>
-          <h1 id="hero-heading">Building intelligent systems. Engineering what comes next.</h1>
-          <p class="lede">
-            I build mobile apps, ML analytics pipelines, and security platforms —
-            from an offline Android finance tracker to an AI-assisted campus app
-            and a zero-budget cyber threat intelligence stack.
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#projects">View projects</a>
-            <a class="btn btn-ghost" href="#contact">Contact me</a>
-          </div>
-          <dl class="hero-meta">
-            <div><dt>Focus</dt><dd>Mobile · ML · CTI</dd></div>
-            <div><dt>Base</dt><dd>Tangier, Morocco — open to remote</dd></div>
-            <div><dt>GitHub</dt><dd><a href="https://github.com/ibrahimz-dev">github.com/ibrahimz-dev</a></dd></div>
-          </dl>
+            © <span id="year">2026</span> Ibrahim Zaryouh. All rights reserved.
         </div>
-        <div class="hero-visual">
-          <img class="hero-logo" src="assets/logo.png" alt="IZ emblem — geometric monogram over dark mountains" width="520" height="520" fetchpriority="high" />
+        <div class="flex space-x-6">
+            <span class="italic font-serif">Portfolio</span>
+            <span>Software Engineering</span>
         </div>
-      </div>
-      <div class="ridge" aria-hidden="true">
-        <svg viewBox="0 0 1440 180" preserveAspectRatio="none">
-          <path class="ridge-back" d="M0,150 L120,110 L260,135 L400,80 L540,120 L680,60 L820,115 L960,85 L1100,125 L1240,95 L1360,120 L1440,105 L1440,180 L0,180 Z" />
-          <path class="ridge-front" d="M0,165 L150,135 L300,155 L470,115 L640,150 L800,120 L980,152 L1140,128 L1300,150 L1440,138 L1440,180 L0,180 Z" />
-        </svg>
-      </div>
-    </section>
+    </footer>
 
-    <!-- ABOUT -->
-    <section class="section about" id="about" aria-labelledby="about-heading">
-      <div class="narrow">
-        <p class="mono">01 / PROFILE</p>
-        <h2 id="about-heading">About</h2>
-        <p>
-          I'm <strong>Ibrahim Zaryouh</strong>, a software engineering student working across
-          mobile, data, and security. My projects share one thread: <strong>local-first,
-          cost-conscious engineering</strong> — Room databases instead of backends, free-tier
-          LLM chains instead of paid APIs, SQLite instead of servers.
-        </p>
-        <p>
-          Recent work includes the <strong>Argus CTI platform</strong> (FastAPI + ClickHouse + React),
-          the <strong>CampusEvents-AI</strong> Expo app, an <strong>ML-driven e-commerce intelligence
-          suite</strong> with Kubeflow, and <strong>SmartBudget</strong>, a fully offline Android
-          finance app. Everything is open source on GitHub.
-        </p>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section section-alt" id="skills" aria-labelledby="skills-heading">
-      <div class="container">
-        <p class="mono">02 / CAPABILITIES</p>
-        <h2 id="skills-heading">Technical skills</h2>
-        <p class="section-sub">Grouped by where each tool is actually used across my repositories.</p>
-        <div class="skills-grid">
-          <div class="skill-group reveal">
-            <h3><span class="mono">MOBILE</span>Mobile</h3>
-            <ul><li>Kotlin</li><li>Jetpack Compose / Material 3</li><li>Room</li><li>Expo / React Native</li><li>Gradle</li></ul>
-          </div>
-          <div class="skill-group reveal">
-            <h3><span class="mono">WEB/API</span>Backend &amp; frontend</h3>
-            <ul><li>Python / FastAPI</li><li>TypeScript / React</li><li>Node.js / Express</li><li>Vite / Tailwind</li><li>HTML / CSS</li></ul>
-          </div>
-          <div class="skill-group reveal">
-            <h3><span class="mono">ML/AI</span>Data &amp; ML</h3>
-            <ul><li>scikit-learn / XGBoost</li><li>KMeans / DBSCAN / PCA / Apriori</li><li>Kubeflow pipelines</li><li>Streamlit dashboards</li><li>Groq / OpenAI / Ollama</li></ul>
-          </div>
-          <div class="skill-group reveal">
-            <h3><span class="mono">DATA/OPS</span>Data &amp; ops</h3>
-            <ul><li>SQLite / Room</li><li>ClickHouse</li><li>STIX 2.1 / TAXII 2.1</li><li>Docker / Compose</li><li>GitHub Actions</li></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <p class="mono">03 / SELECTED WORK</p>
-        <h2 id="projects-heading">Featured projects</h2>
-        <p class="section-sub">Real repositories with real stacks. Source code on GitHub — no mockups, no invented metrics.</p>
-        <div class="project-grid">
-          <article class="card card-featured reveal">
-            <div class="card-top"><span class="mono">01 — FEATURED · PYTHON</span><span class="lang-dot" aria-hidden="true"></span></div>
-            <h3>Argus CTI — Cyber Threat Intelligence Platform</h3>
-            <p>
-              Zero-cost, production-oriented CTI platform for a CSIRT team: async FastAPI API serving
-              a React dashboard on one origin, ClickHouse OLAP storage, and a Groq → Gemini → local
-              Ollama LLM fallback chain.
-            </p>
-            <ul class="feats">
-              <li>OSINT connectors (CISA, NVD, abuse.ch) with retry backoff and dedup</li>
-              <li>STIX 2.1 / TAXII 2.1 sharing with TLP enforcement and RBAC</li>
-              <li>Alert-rules engine with multi-channel notifications and reporting</li>
-            </ul>
-            <ul class="badges" aria-label="Stack">
-              <li>Python</li><li>FastAPI</li><li>ClickHouse</li><li>React</li><li>Docker</li><li>STIX/TAXII</li>
-            </ul>
-            <div class="card-links"><a href="https://github.com/ibrahimz-dev/cert-threat-intelligence-platform">Repository →</a></div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top"><span class="mono">02 · TYPESCRIPT</span><span class="lang-dot" aria-hidden="true"></span></div>
-            <h3>CampusEvents-AI</h3>
-            <p>
-              React Native (Expo) campus-events app: students browse, search, favorite, and register;
-              admins manage the catalog. AI assistant for natural-language search, local-first SQLite.
-            </p>
-            <ul class="feats">
-              <li>Expo Router with student tabs + admin stack</li>
-              <li>Groq/OpenAI/Mistral assistant with offline-capable core</li>
-            </ul>
-            <ul class="badges" aria-label="Stack">
-              <li>TypeScript</li><li>Expo</li><li>SQLite</li><li>LLM APIs</li>
-            </ul>
-            <div class="card-links"><a href="https://github.com/ibrahimz-dev/CampusEvents-AI">Repository →</a></div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top"><span class="mono">03 · PYTHON</span><span class="lang-dot" aria-hidden="true"></span></div>
-            <h3>Smart eCommerce Intelligence</h3>
-            <p>
-              E-commerce analytics over 4,133 cleaned products across 16 categories: scraping agents,
-              classification and clustering, a 6-stage Kubeflow pipeline, Streamlit BI, LLM insights.
-            </p>
-            <ul class="feats">
-              <li>Shopify/WooCommerce agents with cleaning pipeline</li>
-              <li>RF/XGBoost, KMeans/DBSCAN, PCA, Apriori + Top-K scoring</li>
-            </ul>
-            <ul class="badges" aria-label="Stack">
-              <li>Python</li><li>scikit-learn</li><li>Kubeflow</li><li>Streamlit</li><li>Docker</li>
-            </ul>
-            <div class="card-links"><a href="https://github.com/ibrahimz-dev/Smart-eCommerce-Intelligence">Repository →</a></div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top"><span class="mono">04 · KOTLIN</span><span class="lang-dot" aria-hidden="true"></span></div>
-            <h3>SmartBudget</h3>
-            <p>
-              Private-first Android finance tracker in Kotlin with Jetpack Compose and Material 3:
-              monthly dashboard, budget limits, category analytics, search &amp; filter, CSV tools.
-            </p>
-            <ul class="feats">
-              <li>100% offline — Room storage, no accounts, no network permission</li>
-              <li>Dark mode, demo-data seeding, unit-tested ViewModel</li>
-            </ul>
-            <ul class="badges" aria-label="Stack">
-              <li>Kotlin</li><li>Compose</li><li>Room</li><li>Material 3</li>
-            </ul>
-            <div class="card-links"><a href="https://github.com/ibrahimz-dev/SmartBudget">Repository →</a></div>
-          </article>
-
-          <article class="card reveal">
-            <div class="card-top"><span class="mono">05 · HTML</span><span class="lang-dot" aria-hidden="true"></span></div>
-            <h3>First Project — Moroccan Food</h3>
-            <p>
-              First web project: a single static page presenting couscous, tagine, and harira
-              in semantic HTML with minimal CSS. No build step, no dependencies.
-            </p>
-            <ul class="badges" aria-label="Stack">
-              <li>HTML</li><li>CSS</li>
-            </ul>
-            <div class="card-links"><a href="https://github.com/ibrahimz-dev/first-project">Repository →</a></div>
-          </article>
-        </div>
-        <p class="more-row">More on GitHub: <a href="https://github.com/ibrahimz-dev?tab=repositories">all 7 public repositories →</a> (7 open-source repos, MIT-style open work).</p>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section class="section section-alt" id="education" aria-labelledby="education-heading">
-      <div class="narrow">
-        <p class="mono">04 / BACKGROUND</p>
-        <h2 id="education-heading">Education</h2>
-        <ol class="timeline">
-          <li class="reveal">
-            <p class="mono">2025 — 2026</p>
-            <h3>FST Tanger — LSI 2, DM &amp; SID</h3>
-            <p>Data &amp; decision-systems track. Coursework applied in the Smart eCommerce Intelligence project (scraping, ML, Kubeflow, BI dashboard).</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact" aria-labelledby="contact-heading">
-      <div class="narrow contact-box reveal">
-        <p class="mono">05 / CONTACT</p>
-        <h2 id="contact-heading">Let's build something.</h2>
-        <p class="section-sub">Open to internships, freelance work, and collaboration on mobile, ML, or security tooling.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="mailto:zaryouh.ibrahimx@gmail.com">zaryouh.ibrahimx@gmail.com</a>
-          <a class="btn btn-ghost" href="https://github.com/ibrahimz-dev">GitHub profile</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <p>© <span id="year">2026</span> Ibrahim Zaryouh — Built with the IZ identity. No trackers, no frameworks.</p>
-      <a href="#top">Back to top ↑</a>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      // Theme toggle (dark default, persisted)
-      var btn = document.getElementById('themeBtn');
-      var metaTheme = document.querySelector('meta[name="theme-color"]');
-      function label() {
-        var light = document.documentElement.getAttribute('data-theme') === 'light';
-        btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
-        btn.setAttribute('aria-pressed', String(light));
-        if (metaTheme) metaTheme.setAttribute('content', light ? '#F7F8FA' : '#05070B');
-      }
-      btn.addEventListener('click', function () {
-        var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', next);
-        try { localStorage.setItem('iz-theme', next); } catch (e) {}
-        label();
-      });
-      label();
-
-      // Mobile menu
-      var menu = document.getElementById('menuBtn');
-      var links = document.getElementById('navLinks');
-      menu.addEventListener('click', function () {
-        var open = links.classList.toggle('open');
-        menu.setAttribute('aria-expanded', String(open));
-      });
-      links.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A') { links.classList.remove('open'); menu.setAttribute('aria-expanded', 'false'); }
-      });
-
-      // Footer year
-      document.getElementById('year').textContent = String(new Date().getFullYear());
-
-      // Scroll reveals
-      var items = document.querySelectorAll('.reveal');
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-        items.forEach(function (el) { el.classList.add('visible'); });
-        return;
-      }
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+    <script>
+      (function () {
+        // Theme toggle (dark default, persisted, OS-aware)
+        var btn = document.getElementById('themeBtn');
+        var label = document.getElementById('themeLabel');
+        var metaTheme = document.querySelector('meta[name="theme-color"]');
+        function paint() {
+          var light = !document.documentElement.classList.contains('dark');
+          btn.setAttribute('aria-label', light ? 'Switch to dark theme' : 'Switch to light theme');
+          btn.setAttribute('aria-pressed', String(light));
+          label.textContent = light ? 'Light' : 'Dark';
+          if (metaTheme) metaTheme.setAttribute('content', light ? '#f7f8fa' : '#0e0f11');
+        }
+        btn.addEventListener('click', function () {
+          var light = document.documentElement.classList.toggle('dark') === false;
+          try { localStorage.setItem('iz-theme', light ? 'light' : 'dark'); } catch (e) {}
+          paint();
         });
-      }, { threshold: 0.12 });
-      items.forEach(function (el) { io.observe(el); });
-    })();
-  </script>
+        paint();
+
+        // Footer year + scroll reveals
+        document.getElementById('year').textContent = String(new Date().getFullYear());
+        var items = document.querySelectorAll('.reveal');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+          items.forEach(function (el) { el.classList.add('visible'); });
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+          });
+        }, { threshold: 0.12 });
+        items.forEach(function (el) { io.observe(el); });
+      })();
+    </script>
+
 </body>
 </html>
