@@ -252,9 +252,9 @@
             <!-- Right Card: Featured Argus CTI with IZ visual -->
             <div class="lg:col-span-8 card-dark rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-12 shadow-2xl reveal" style="border: 1px solid var(--line-soft)">
 
-                <!-- Left Visual Graphic Section -->
-                <div class="md:col-span-5 relative min-h-[220px] md:min-h-full fluid-mesh-bg flex items-center justify-center p-6 overflow-hidden">
-                    <img src="assets/logo.png" alt="IZ emblem — geometric monogram over dark mountains" class="relative w-36 h-36 rounded-full object-cover shadow-2xl" style="border: 1px solid rgba(255,255,255,0.3)" />
+                <!-- Left Visual Graphic Section: live dashboard screenshot -->
+                <div class="md:col-span-5 relative min-h-[220px] md:min-h-full overflow-hidden" style="background:#0a0d12">
+                    <img src="assets/preview-cti-overview.png" alt="Argus CTI Executive Overview dashboard — live KPIs, alert pipeline and indicator breakdown" class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
                 </div>
 
                 <!-- Right Description & Action Content -->
@@ -283,6 +283,14 @@
                     </div>
                 </div>
 
+                <!-- Second live screenshot: threat origin map -->
+                <div class="md:col-span-12 px-7 sm:px-9 pb-7 sm:pb-9">
+                    <figure class="m-0">
+                        <img src="assets/preview-cti-landscape.png" alt="Argus CTI Threat Landscape — geolocated world origin map with top countries panel" class="w-full rounded-2xl" style="border: 1px solid var(--line-soft)" loading="lazy" />
+                        <figcaption class="badge-mono mt-2">THREAT LANDSCAPE — LIVE DASHBOARD SCREENSHOT</figcaption>
+                    </figure>
+                </div>
+
             </div>
         </div>
 
@@ -292,6 +300,12 @@
                 <p class="badge-mono mb-3">03 — TYPESCRIPT · EXPO</p>
                 <h3 class="text-base font-bold theme-ink font-mono mb-2">CampusEvents-AI</h3>
                 <p class="text-xs theme-muted leading-relaxed mb-4">Expo campus-events app: student catalog, search, favorites, registrations; admin CRUD; LLM assistant; offline-first SQLite.</p>
+                <div class="grid grid-cols-3 gap-3 mb-2" role="group" aria-label="Live app screenshots">
+                    <img src="assets/preview-campus-catalog.png" alt="CampusEvents catalog screen — event discovery in French" class="w-full rounded-xl" style="border: 1px solid var(--line-soft)" loading="lazy" />
+                    <img src="assets/preview-campus-favorites.png" alt="CampusEvents favorites screen — saved events list" class="w-full rounded-xl" style="border: 1px solid var(--line-soft)" loading="lazy" />
+                    <img src="assets/preview-campus-ai.png" alt="Campus AI assistant chat — natural-language event search" class="w-full rounded-xl" style="border: 1px solid var(--line-soft)" loading="lazy" />
+                </div>
+                <p class="badge-mono mb-4">LIVE APP SCREENSHOTS — FROM PROJECT PDF</p>
                 <div class="flex flex-wrap gap-2 mb-4" aria-label="Stack"><span class="stack-badge">TypeScript</span><span class="stack-badge">Expo</span><span class="stack-badge">SQLite</span></div>
                 <a href="https://github.com/ibrahimz-dev/CampusEvents-AI" target="_blank" rel="noopener" class="pill-btn px-4 py-2 rounded-full text-xs theme-muted">View repo</a>
             </div>
