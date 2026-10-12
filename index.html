@@ -100,6 +100,7 @@
         .navlink:hover { color: var(--ink); }
         .theme-surface { background-color: var(--surface); border-color: var(--line); }
         .badge-mono { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
+        .skill-icons { height: 40px; width: auto; max-width: 100%; }
         .stack-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.22rem 0.65rem; color: var(--ink); background: var(--pill-bg); }
         /* ---------- Carousel ---------- */
         .carousel { position: relative; }
@@ -187,6 +188,7 @@
             <div class="hidden md:flex items-center space-x-10 text-sm font-medium">
                 <a href="#about" class="navlink">About</a>
                 <a href="#projects" class="navlink">Projects</a>
+                <a href="#repos" class="navlink">Repos</a>
                 <a href="#skills" class="navlink">Skills</a>
                 <a href="#contact" class="navlink">Contact</a>
             </div>
@@ -207,6 +209,7 @@
         <div id="mobileMenu" class="md:hidden hidden mt-4 card-dark rounded-3xl p-4 flex-col gap-1">
             <a href="#about" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">About</a>
             <a href="#projects" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">Projects</a>
+            <a href="#repos" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">Repos</a>
             <a href="#skills" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">Skills</a>
             <a href="#contact" class="navlink block px-4 py-3 rounded-2xl text-sm font-medium">Contact</a>
         </div>
@@ -447,6 +450,50 @@
             </div>
         </div>
 
+        <!-- All repositories -->
+        <div class="pt-14" id="repos">
+            <p class="badge-mono mb-2">OPEN SOURCE — EVERY REPO</p>
+            <h2 class="text-3xl sm:text-4xl font-bold theme-ink mb-4">All 7 public repositories</h2>
+            <p class="theme-muted text-sm sm:text-base max-w-2xl leading-relaxed mb-8">Everything I build is open. Featured work is above — the complete list, with live status, is here.</p>
+            <div class="grid grid-cols-1 gap-4">
+                <a href="https://github.com/ibrahimz-dev/cert-threat-intelligence-platform" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
+                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">cert-threat-intelligence-platform</span>
+                    <span class="text-xs theme-muted flex-1">Argus CTI — zero-cost CSIRT platform (FastAPI + ClickHouse + React).</span>
+                    <span class="badge-mono whitespace-nowrap">PYTHON · OCT 2026 →</span>
+                </a>
+                <a href="https://github.com/ibrahimz-dev/CampusEvents-AI" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
+                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">CampusEvents-AI</span>
+                    <span class="text-xs theme-muted flex-1">Expo campus-events app with LLM assistant and offline SQLite store.</span>
+                    <span class="badge-mono whitespace-nowrap">TYPESCRIPT · OCT 2026 →</span>
+                </a>
+                <a href="https://github.com/ibrahimz-dev/Smart-eCommerce-Intelligence" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
+                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">Smart-eCommerce-Intelligence</span>
+                    <span class="text-xs theme-muted flex-1">ML suite over 4,133 products: scraping, models, Kubeflow, Streamlit BI.</span>
+                    <span class="badge-mono whitespace-nowrap">PYTHON · OCT 2026 →</span>
+                </a>
+                <a href="https://github.com/ibrahimz-dev/SmartBudget" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
+                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">SmartBudget</span>
+                    <span class="text-xs theme-muted flex-1">Offline Android finance tracker (Kotlin + Compose + Room).</span>
+                    <span class="badge-mono whitespace-nowrap">KOTLIN · OCT 2026 →</span>
+                </a>
+                <a href="https://github.com/ibrahimz-dev/ibrahimz-dev.github.io" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
+                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">ibrahimz-dev.github.io</span>
+                    <span class="text-xs theme-muted flex-1">This portfolio — hand-built static site, dark/light themes.</span>
+                    <span class="badge-mono whitespace-nowrap">HTML · OCT 2026 →</span>
+                </a>
+                <a href="https://github.com/ibrahimz-dev/first-project" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
+                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">first-project</span>
+                    <span class="text-xs theme-muted flex-1">Moroccan food recipe page — first HTML + CSS project.</span>
+                    <span class="badge-mono whitespace-nowrap">HTML · OCT 2026 →</span>
+                </a>
+                <a href="https://github.com/ibrahimz-dev/ibrahimz-dev" target="_blank" rel="noopener" class="card-dark p-5 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 no-underline reveal">
+                    <span class="font-mono text-sm theme-ink sm:w-72 shrink-0">ibrahimz-dev</span>
+                    <span class="text-xs theme-muted flex-1">GitHub profile README — skills, activity graph and links.</span>
+                    <span class="badge-mono whitespace-nowrap">PROFILE · OCT 2026 →</span>
+                </a>
+            </div>
+        </div>
+
         <!-- Skills -->
         <div class="pt-14" id="skills">
             <p class="badge-mono mb-2">SKILLS — GROUPED BY USE</p>
@@ -454,19 +501,51 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="card-dark p-6 rounded-3xl reveal">
                     <p class="badge-mono mb-2">MOBILE</p>
+                    <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,gradle" alt="Kotlin, Android Studio and Gradle icons" class="skill-icons mb-4" loading="lazy" />
                     <ul class="text-sm theme-muted space-y-1.5 list-none p-0 m-0"><li>Kotlin</li><li>Jetpack Compose / Material 3</li><li>Room</li><li>Expo / React Native</li><li>Gradle</li></ul>
                 </div>
                 <div class="card-dark p-6 rounded-3xl reveal">
                     <p class="badge-mono mb-2">WEB / API</p>
+                    <img src="https://skillicons.dev/icons?i=ts,react,nodejs,express,fastapi,vite,tailwind" alt="TypeScript, React, Node.js, Express, FastAPI, Vite and Tailwind icons" class="skill-icons mb-4" loading="lazy" />
                     <ul class="text-sm theme-muted space-y-1.5 list-none p-0 m-0"><li>Python / FastAPI</li><li>TypeScript / React</li><li>Node.js / Express</li><li>Vite / Tailwind</li><li>HTML / CSS</li></ul>
                 </div>
                 <div class="card-dark p-6 rounded-3xl reveal">
                     <p class="badge-mono mb-2">ML / AI</p>
+                    <img src="https://skillicons.dev/icons?i=py,sklearn,tensorflow,pytorch" alt="Python, scikit-learn, TensorFlow and PyTorch icons" class="skill-icons mb-4" loading="lazy" />
                     <ul class="text-sm theme-muted space-y-1.5 list-none p-0 m-0"><li>scikit-learn / XGBoost</li><li>KMeans / DBSCAN / PCA</li><li>Kubeflow pipelines</li><li>Streamlit</li><li>Groq / OpenAI / Ollama</li></ul>
                 </div>
                 <div class="card-dark p-6 rounded-3xl reveal">
                     <p class="badge-mono mb-2">DATA / OPS</p>
+                    <img src="https://skillicons.dev/icons?i=sqlite,postgres,docker,git,github,linux" alt="SQLite, Postgres, Docker, Git, GitHub and Linux icons" class="skill-icons mb-4" loading="lazy" />
                     <ul class="text-sm theme-muted space-y-1.5 list-none p-0 m-0"><li>SQLite / Room</li><li>ClickHouse</li><li>STIX 2.1 / TAXII 2.1</li><li>Docker / Compose</li><li>GitHub Actions</li></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- How I work -->
+        <div class="pt-14">
+            <p class="badge-mono mb-2">PRINCIPLES — HOW I WORK</p>
+            <h2 class="text-3xl sm:text-4xl font-bold theme-ink mb-6">Small budgets, production habits</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-dark p-6 rounded-3xl reveal">
+                    <i class="fa-solid fa-database text-2xl theme-ink" aria-hidden="true"></i>
+                    <h3 class="text-base font-bold theme-ink font-mono mt-4 mb-2">Local-first</h3>
+                    <p class="text-xs theme-muted m-0 leading-relaxed">Room, SQLite and offline-first builds — no accounts or servers where avoidable.</p>
+                </div>
+                <div class="card-dark p-6 rounded-3xl reveal">
+                    <i class="fa-solid fa-code-commit text-2xl theme-ink" aria-hidden="true"></i>
+                    <h3 class="text-base font-bold theme-ink font-mono mt-4 mb-2">Readable history</h3>
+                    <p class="text-xs theme-muted m-0 leading-relaxed">Conventional commits in every repo — feat, fix, docs and test, never "update".</p>
+                </div>
+                <div class="card-dark p-6 rounded-3xl reveal">
+                    <i class="fa-solid fa-gears text-2xl theme-ink" aria-hidden="true"></i>
+                    <h3 class="text-base font-bold theme-ink font-mono mt-4 mb-2">CI on push</h3>
+                    <p class="text-xs theme-muted m-0 leading-relaxed">GitHub Actions verify each change; Pages redeploys this site automatically.</p>
+                </div>
+                <div class="card-dark p-6 rounded-3xl reveal">
+                    <i class="fa-solid fa-book-open text-2xl theme-ink" aria-hidden="true"></i>
+                    <h3 class="text-base font-bold theme-ink font-mono mt-4 mb-2">Docs ship too</h3>
+                    <p class="text-xs theme-muted m-0 leading-relaxed">READMEs, architecture maps and setup guides land with the code, not after it.</p>
                 </div>
             </div>
         </div>
